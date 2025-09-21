@@ -12,5 +12,7 @@ ans: const addition = (a, b) => a + b;
 ans: const [a, b] = [10, 20];     
 const {name, age} = {name:"Ali", age:25}; 
 5) Explain template literals in ES6. How are they different from string concatenation?
-ans: const name = "moon";
+ans: ```js
+const name = "moon";
 console.log(`Hello, my name is ${name}`);
+
