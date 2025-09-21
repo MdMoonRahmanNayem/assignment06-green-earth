@@ -4,8 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Green Earth</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
-    
+
+    <!-- Navbar -->
+    <nav class="bg-green-600 p-4">
+        <div class="flex justify-between items-center">
+            <!-- Logo -->
+            <div class="text-white text-2xl font-bold">
+                Green Earth
+            </div>
+
+            <!-- Menu items (for mobile and desktop) -->
+            <div class="hidden sm:flex space-x-8">
+                <a href="#about" class="text-white hover:text-yellow-400">About</a>
+                <a href="#gallery" class="text-white hover:text-yellow-400">Gallery</a>
+                <a href="#plant-tree" class="text-white hover:text-yellow-400">Plant a Tree</a>
+            </div>
+
+            <!-- Plant a Tree button -->
+            <button class="bg-yellow-400 text-black py-2 px-6 rounded-full hover:bg-yellow-300 transition duration-300">
+                Plant a Tree
+            </button>
+        </div>
+    </nav>
+
 </body>
 </html>
