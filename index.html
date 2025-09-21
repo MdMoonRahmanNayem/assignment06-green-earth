@@ -6,12 +6,11 @@
   <title>Green Earth</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="font-sans">
+<body class="font-sans bg-[#EAF9EE] text-gray-800">
 
   <!-- Navbar -->
   <nav class="bg-[#15803D]">
     <div class="mx-auto max-w-[1360px] px-6">
-      <!-- Desktop -->
       <div class="hidden md:grid h-16 items-center grid-cols-[1fr_auto_1fr]">
         <div class="text-white text-xl font-bold">Green Earth</div>
         <div class="flex items-center gap-7">
@@ -20,14 +19,10 @@
           <a href="#plant-tree" class="text-white hover:text-[#DFF0DD]">Plant a Tree</a>
         </div>
         <div class="flex justify-end">
-          <a href="#plant-tree"
-             class="rounded-full bg-[#FACC15] px-5 py-2 font-semibold text-black hover:bg-[#EAB308] transition">
-            Plant a Tree
-          </a>
+          <a href="#plant-tree" class="rounded-full bg-[#FACC15] px-5 py-2 font-semibold text-black hover:bg-[#EAB308] transition">Plant a Tree</a>
         </div>
       </div>
 
-      <!-- Mobile -->
       <div class="md:hidden flex h-16 items-center justify-between">
         <div class="text-white text-lg font-bold">Green Earth</div>
         <button id="menuBtn" class="text-white text-2xl" aria-label="open menu">☰</button>
@@ -36,51 +31,114 @@
         <a href="#about" class="block px-2 py-2 text-white">About</a>
         <a href="#gallery" class="block px-2 py-2 text-white">Gallery</a>
         <a href="#plant-tree" class="block px-2 py-2 text-white">Plant a Tree</a>
-        <a href="#plant-tree" class="mt-2 inline-block rounded-full bg-[#FACC15] px-4 py-2 font-semibold text-black">
-          Plant a Tree
-        </a>
+        <a href="#plant-tree" class="mt-2 inline-block rounded-full bg-[#FACC15] px-4 py-2 font-semibold text-black">Plant a Tree</a>
       </div>
     </div>
   </nav>
 
- <!-- Banner Section -->
-<section class="relative bg-[#D1FAE5] overflow-hidden">
-  <div class="relative mx-auto max-w-[1200px] px-10
-              h-[383px] flex items-center justify-center text-center">
+  <!-- Banner Section -->
+  <section class="relative bg-[#D1FAE5] overflow-hidden">
+    <div class="relative mx-auto max-w-[1360px] px-6 h-[383px] flex items-center justify-center text-center">
+      <img src="assets/hero-leaf1.png" alt="Left Leaf"
+           class="hidden md:block absolute bottom-0 left-[-140px] w-[480px] object-contain select-none pointer-events-none z-0" />
+      <img src="assets/hero-leaf2.png" alt="Right Leaf"
+           class="hidden md:block absolute bottom-0 right-[-140px] w-[480px] object-contain select-none pointer-events-none z-0" />
+      <div class="relative z-10 max-w-2xl px-4">
+        <h1 class="text-3xl sm:text-4xl lg:text-[40px] font-extrabold leading-tight text-gray-900">Plant a Tree, Grow a Future</h1>
+        <p class="mt-3 text-gray-700 text-base lg:text-[16px]">Join our mission to plant 1 million trees and make the Earth greener for future generations.</p>
+        <a href="#plant-tree" class="mt-5 inline-block rounded-full bg-[#FACC15] px-6 py-2.5 font-semibold text-black hover:bg-[#EAB308] transition">Get Involved</a>
+      </div>
+    </div>
+  </section>
 
-    <!-- Left Leaf -->
-    <img src="assets/hero-leaf1.png" alt="Left Leaf"
-         class="hidden md:block absolute bottom-0 left-[-120px]
-                w-[480px] object-contain select-none pointer-events-none z-0" />
+  <!-- Main (Categories + Cards + Cart) -->
+  <main class="mx-auto max-w-[1360px] px-6 py-10">
+    <h2 class="text-2xl sm:text-3xl font-bold text-center mb-6">Choose Your Trees</h2>
 
-    <!-- Right Leaf -->
-    <img src="assets/hero-leaf2.png" alt="Right Leaf"
-         class="hidden md:block absolute bottom-0 right-[-120px]
-                w-[480px] object-contain select-none pointer-events-none z-0" />
+    <div class="grid grid-cols-1 lg:grid-cols-[260px_minmax(0,1fr)_320px] gap-6">
+      <aside class="bg-white rounded-2xl p-5 shadow-sm">
+        <h3 class="text-lg font-semibold mb-4">Categories</h3>
+        <div id="categoryList" class="space-y-2"></div>
+      </aside>
 
-    <!-- Content -->
-    <div class="relative z-10 max-w-2xl px-4">
-      <h1 class="text-3xl sm:text-4xl lg:text-[40px] font-extrabold leading-tight text-gray-900">
-        Plant a Tree, Grow a Future
-      </h1>
-      <p class="mt-3 text-gray-700 text-base lg:text-[16px]">
-        Join our mission to plant 1 million trees and make the Earth greener for future generations.
-      </p>
-      <a href="#plant-tree"
-         class="mt-5 inline-block rounded-full bg-[#FACC15] px-6 py-2.5 font-semibold text-black hover:bg-[#EAB308] transition">
-        Get Involved
-      </a>
+      <section class="relative">
+        <div id="spinner" class="hidden absolute inset-0 grid place-items-center z-10 bg-white/70 rounded-2xl">
+          <svg class="animate-spin h-10 w-10" viewBox="0 0 24 24">
+            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" fill="none"></circle>
+            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4A4 4 0 004 12z"></path>
+          </svg>
+        </div>
+
+        <div id="cardsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5"></div>
+        <div id="emptyState" class="hidden rounded-2xl bg-white p-8 text-center text-gray-500">No trees found for this category.</div>
+      </section>
+
+      <aside class="bg-white rounded-2xl p-5 shadow-sm">
+        <h3 class="text-lg font-semibold mb-4">Your Cart</h3>
+        <ul id="cartList" class="space-y-2"></ul>
+        <div class="border-t mt-4 pt-4 flex items-center justify-between text-lg font-semibold">
+          <span>Total:</span>
+          <span id="cartTotal">৳0</span>
+        </div>
+      </aside>
+    </div>
+  </main>
+  <!-- About the Campaign -->
+<section id="about" class="py-14 bg-[#EAF9EE]">
+  <div class="mx-auto max-w-[1360px] px-6">
+    <h2 class="text-2xl sm:text-3xl font-semibold text-center mb-8">
+      About the Campaign
+    </h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+      <!-- Image (left) -->
+      <figure class="rounded-2xl overflow-hidden bg-white shadow-sm p-4">
+        <img
+          src="assets/about.png"
+          alt="Young plant"
+          class="w-full h-[360px] sm:h-[400px] object-cover rounded-xl"
+        />
+      </figure>
+
+      <!-- Text (right) -->
+      <div class="text-gray-700">
+        <p class="mb-4">
+          Green Earth is a global tree plantation initiative dedicated to fighting climate change.
+          By joining our campaign, you help restore forests, create habitats for wildlife,
+          and improve the air we breathe.
+        </p>
+        <ul class="list-disc pl-5 space-y-1">
+          <li>Restoration of natural habitats</li>
+          <li>Improvement of air quality</li>
+          <li>Support for local communities</li>
+        </ul>
+      </div>
     </div>
   </div>
 </section>
 
 
+  <!-- Modal -->
+  <div id="modal" class="fixed inset-0 hidden items-center justify-center z-50">
+    <div class="absolute inset-0 bg-black/40"></div>
+    <div class="relative bg-white rounded-2xl w-[90%] max-w-2xl p-5 shadow-lg">
+      <button id="modalClose" class="absolute right-3 top-3 text-gray-500 hover:text-gray-700">✕</button>
+      <h3 id="modalTitle" class="text-xl font-bold mb-2">Tree Details</h3>
+      <img id="modalImg" class="w-full h-60 object-cover rounded-xl mb-3" alt="Tree image" />
+      <p id="modalDesc" class="text-gray-700 mb-2"></p>
+      <div class="flex items-center gap-2 text-sm">
+        <span id="modalCategory" class="px-2 py-1 rounded-full bg-green-100 text-green-700"></span>
+        <span id="modalPrice" class="px-2 py-1 rounded-full bg-gray-100"></span>
+      </div>
+    </div>
+  </div>
 
-  <!-- JS for mobile menu -->
   <script>
     const btn = document.getElementById('menuBtn');
     const menu = document.getElementById('mobileMenu');
     btn?.addEventListener('click', () => menu.classList.toggle('hidden'));
   </script>
+
+  <script src="app.js" defer></script>
 </body>
 </html>
