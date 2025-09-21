@@ -1,35 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Green Earth</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Green Earth</title>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
+<body class="font-sans">
 
-    <!-- Navbar -->
-    <nav class="bg-green-600 p-4">
-        <div class="flex justify-between items-center">
-            <!-- Logo -->
-            <div class="text-white text-2xl font-bold">
-                Green Earth
-            </div>
-
-            <!-- Menu items (for mobile and desktop) -->
-            <div class="hidden sm:flex space-x-8">
-                <a href="#about" class="text-white hover:text-yellow-400">About</a>
-                <a href="#gallery" class="text-white hover:text-yellow-400">Gallery</a>
-                <a href="#plant-tree" class="text-white hover:text-yellow-400">Plant a Tree</a>
-            </div>
-
-            <!-- Plant a Tree button -->
-            <button class="bg-yellow-400 text-black py-2 px-6 rounded-full hover:bg-yellow-300 transition duration-300">
-                Plant a Tree
-            </button>
+  <!-- Navbar -->
+  <nav class="bg-[#15803D]">
+    <div class="mx-auto max-w-[1360px] px-6">
+      <!-- Desktop -->
+      <div class="hidden md:grid h-16 items-center grid-cols-[1fr_auto_1fr]">
+        <div class="text-white text-xl font-bold">Green Earth</div>
+        <div class="flex items-center gap-7">
+          <a href="#about" class="text-white hover:text-[#DFF0DD]">About</a>
+          <a href="#gallery" class="text-white hover:text-[#DFF0DD]">Gallery</a>
+          <a href="#plant-tree" class="text-white hover:text-[#DFF0DD]">Plant a Tree</a>
         </div>
-    </nav>
+        <div class="flex justify-end">
+          <a href="#plant-tree"
+             class="rounded-full bg-[#FACC15] px-5 py-2 font-semibold text-black hover:bg-[#EAB308] transition">
+            Plant a Tree
+          </a>
+        </div>
+      </div>
 
+      <!-- Mobile -->
+      <div class="md:hidden flex h-16 items-center justify-between">
+        <div class="text-white text-lg font-bold">Green Earth</div>
+        <button id="menuBtn" class="text-white text-2xl" aria-label="open menu">☰</button>
+      </div>
+      <div id="mobileMenu" class="md:hidden hidden pb-3">
+        <a href="#about" class="block px-2 py-2 text-white">About</a>
+        <a href="#gallery" class="block px-2 py-2 text-white">Gallery</a>
+        <a href="#plant-tree" class="block px-2 py-2 text-white">Plant a Tree</a>
+        <a href="#plant-tree" class="mt-2 inline-block rounded-full bg-[#FACC15] px-4 py-2 font-semibold text-black">
+          Plant a Tree
+        </a>
+      </div>
+    </div>
+  </nav>
+
+ <!-- Banner Section -->
+<section class="relative bg-[#D1FAE5] overflow-hidden">
+  <div class="relative mx-auto max-w-[1200px] px-10
+              h-[383px] flex items-center justify-center text-center">
+
+    <!-- Left Leaf -->
+    <img src="assets/hero-leaf1.png" alt="Left Leaf"
+         class="hidden md:block absolute bottom-0 left-[-120px]
+                w-[480px] object-contain select-none pointer-events-none z-0" />
+
+    <!-- Right Leaf -->
+    <img src="assets/hero-leaf2.png" alt="Right Leaf"
+         class="hidden md:block absolute bottom-0 right-[-120px]
+                w-[480px] object-contain select-none pointer-events-none z-0" />
+
+    <!-- Content -->
+    <div class="relative z-10 max-w-2xl px-4">
+      <h1 class="text-3xl sm:text-4xl lg:text-[40px] font-extrabold leading-tight text-gray-900">
+        Plant a Tree, Grow a Future
+      </h1>
+      <p class="mt-3 text-gray-700 text-base lg:text-[16px]">
+        Join our mission to plant 1 million trees and make the Earth greener for future generations.
+      </p>
+      <a href="#plant-tree"
+         class="mt-5 inline-block rounded-full bg-[#FACC15] px-6 py-2.5 font-semibold text-black hover:bg-[#EAB308] transition">
+        Get Involved
+      </a>
+    </div>
+  </div>
+</section>
+
+
+
+  <!-- JS for mobile menu -->
+  <script>
+    const btn = document.getElementById('menuBtn');
+    const menu = document.getElementById('mobileMenu');
+    btn?.addEventListener('click', () => menu.classList.toggle('hidden'));
+  </script>
 </body>
 </html>
