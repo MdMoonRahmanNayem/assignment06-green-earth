@@ -3,7 +3,7 @@ ans: var: Function-scoped, can be re-declared and re-assigned.
 let: Block-scoped, can be re-assigned but can not re-declared.
 const: Block-scoped, cannot be re-assigned and re-declared.
 2) What is the difference between map(), forEach(), and filter()? 
-ans: map(): Returns a modify new array.
+ans: map(): Returns a new modify array.
 forEach(): Just loops over items, no new array is returned.
 filter(): Returns a new array with only the items that pass a condition.
 3) What are arrow functions in ES6?
